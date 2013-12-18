@@ -1,0 +1,47 @@
+$def with(sights, ret)
+$var title: 规划行程
+<script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+<a class="brand" href="#">上海</a>
+  <div class="row-fluid">
+    <div class="span7">
+    <div style="width:100%;height:100%;border:#ccc solid 1px;" id="dituContent"></div>
+    </div>
+    <div class="span2">
+      <h3>选择行程</h3>
+      <div id="current_route">
+      <table class="table table-bordered" >
+      <caption>行程名：$ret['route_name']</caption>
+         <tbody>
+$for s in sights:
+    <tr>
+        <td>景点$s['order']</td>
+        <td>$s['sight'].name</td>
+    </tr>
+</tbody>
+</table>
+</div>
+<button type="button" class="btn btn-primary btn-large" id="add_to" >添加到我的行程</button>
+<ul class="pager">
+$if ret['current'] == '1':
+    <li class="previous disabled">
+    <a href="#" >&larr; 上一个</a>
+$else:
+    <li class="previous">
+    <a href="/edit/$ret['prev']" >&larr; 上一个</a>
+</li>
+$if int(ret['current']) == ret['count']:
+    <li class="next disabled">
+    <a href="#">下一个 &rarr;</a>
+$else:
+    <li class="next">
+    <a href="/edit/$ret['next']">下一个 &rarr;</a>
+</li>
+</ul>
+</div>
+<div class="span3">
+<h3>我的行程</h3>
+<div id="my_route">
+
+</div>
+</div>
+</div>

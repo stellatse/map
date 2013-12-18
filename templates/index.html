@@ -1,0 +1,38 @@
+$var title: 创建行程
+
+<div class="container">
+<!-- Main hero unit for a primary marketing message or call to action -->
+<div class="hero-unit">
+<h1>轻松制作行程计划</h1>
+<hr>
+<p>智能交通解决方案 . 行程地图一目了然 .  手机同步查看计划</p>
+<p><a class="btn btn-primary btn-large" role="button" href="#create" data-toggle="modal">创建我的行程计划 &raquo;</a></p>
+</div>
+<div class="container marketing">
+
+
+</div>
+
+
+<div id="create" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">此行你要去哪里</h3>
+  </div>
+  <div class="modal-body">
+        <form id="register" class="form-horizontal" action="/create" method="POST">
+            <!-- 等有多个目的地后替换成输入框-->
+    		<input type="text" id="destination" name="destination" class="input-block-level" placeholder="目的地">
+            <!--
+            <select name="city">
+              <option value="1">上海</option>
+            </select>
+            -->
+        	<button type="submit" class="btn btn-primary">GO</button>
+          
+        </form>
+  </div>
+
+  
+</div>
+</div>

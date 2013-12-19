@@ -62,7 +62,8 @@ class edit:
             sight = web.ctx.orm.query(Sight).filter(Sight.id==i.sight_id).one()
             sights.append({'sight':sight, 'order':i.sight_order})
         ret = {'route_name':route_name, 'count':count, 'current':route, 'next':next, 'prev': prev}
-        return render.edit(sights, ret)
+        source = web.ctx.orm.query(Sight).filter(Sight.city==r.city).all()
+        return render.edit(sights, ret, source)
     
     def POST(self):
         # init_route = 1

@@ -1,4 +1,4 @@
-$def with(sights, ret)
+$def with(sights, ret, source)
 $var title: 规划行程
 <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
 <a class="brand" href="#">上海</a>
@@ -9,9 +9,20 @@ $var title: 规划行程
     <div class="lister-wrapper">
         <div class="lister-container ui-sortable" id="J_lister-container">
             <div class="list-container" id="J_list-container-tab">
-            <ul class="scene-list" id="J_scene-list" style="height: 100%;">
-                
-            </ul>
+      <table class="table" >
+         <tbody>
+$for i in source:
+    <tr>
+        <td>
+        <img width="90" height="60" style="margin:0px 0px 0px -15px" src="$s['sight'].pic_link">
+        </td>
+        <td><a>$i.name</a><br/>
+            <p style="font-size:11px">建议游玩：$s['sight'].play_time</i>
+        </td>
+    </tr>
+</tbody>
+</table>            
+            
             </div>
         </div>
     </div>

@@ -14,10 +14,10 @@ $var title: 规划行程
 $for i in source:
     <tr>
         <td>
-        <img width="90" height="60" style="margin:0px 0px 0px -15px" src="$s['sight'].pic_link">
+        <img width="90" height="60" style="margin:0px 0px 0px -15px" src="$i.pic_link">
         </td>
         <td><a>$i.name</a><br/>
-            <p style="font-size:11px">建议游玩：$s['sight'].play_time</i>
+            <p style="font-size:11px">建议游玩：$i.play_time</i>
         </td>
     </tr>
 </tbody>

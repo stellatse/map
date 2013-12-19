@@ -9,20 +9,17 @@ $var title: 规划行程
     <div class="lister-wrapper">
         <div class="lister-container ui-sortable" id="J_lister-container">
             <div class="list-container" id="J_list-container-tab">
-      <table class="table" >
-         <tbody>
+<ul class="scene-list" id="J_scene-list" style="height: 129px;">  
 $for i in source:
-    <tr>
-        
-        <td><a>$i.name</a><br/>
-            <p style="font-size:11px">建议游玩：$i.play_time</i>
-        </td>
-        <td>
-        <a href="###" class="add-to-plan J_add-to-plan" title="加入行程"></a>
-        </td>
-    </tr>
-</tbody>
-</table>            
+    <li class="sortable-node has-son-0 ">
+    <div class="scene-item"> 
+         <div class="scene-info handleSortable_path"><strong><span class="J_scene-name scene-name" title="$i.name">$i.name</span></strong>                    
+         <p class="travel-time">$i.play_time</p>                    
+         <a href="###" class="add-to-plan J_add-to-plan" title="加入行程"></a>                
+         </div>
+    </div>
+    </li>
+</ul>          
             
             </div>
         </div>

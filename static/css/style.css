@@ -53,7 +53,27 @@ height: 100%;
 background-color: #f6f6f6;
 border-left: 1px solid #e2e3e3;
 }
-.add-to-plan {
+.scene-item {
+border: 1px solid #eaedf1;
+background-color: #fff;
+margin: 0 20px 10px 0;
+position: relative;
+cursor: move;
+}
+.scene-item .scene-info {
+padding: 8px 10px 8px 70px;
+height: 42px;
+}
+.scene-item strong {
+display: block;
+overflow: hidden;
+}
+.scene-item .travel-time {
+line-height: 18px;
+height: 18px;
+color: #999;
+}
+.scene-item .add-to-plan {
 background: #fff url("/static/img/edit-icon_57726864.png") no-repeat 0 -100px;
 height: 29px;
 width: 29px;

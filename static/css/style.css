@@ -29,3 +29,7 @@ body {
     background: url("/static/img/day-on.jpg") 8px center no-repeat #22a4e6;
     color: #FFF;
 }
+.line-date {
+width: 32px;
+padding-left: 46px;
+}

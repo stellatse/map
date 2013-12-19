@@ -1,7 +1,9 @@
 body {
 	padding-top: 60px;
 	padding-bottom: 40px;
+    font: 12px/1.5 tahoma,arial,\5b8b\4f53,sans-serif;
 }
+
 #destination {
     height:30px;
     width:100px;
@@ -141,12 +143,12 @@ overflow: hidden;
 .detail {
 display: inline;
 float: left;
-width: 659px;
+width: 649px;
 }
 .dname {
 display: inline;
 float: left;
-width: 100px;
+width: 90px;
 padding-right: 15px;
 margin-bottom: 10px;
 text-align: right;

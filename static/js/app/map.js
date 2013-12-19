@@ -108,7 +108,7 @@ function createIcon(json){
     return icon;
 }
 
-markerArr = [];
+var markerArr = [];
 $.ajax({
     url: "/get_sights",
     type: "POST",
@@ -120,3 +120,7 @@ $.ajax({
       }
     initMap();//创建和初始化地图
 });
+function reload_map(){
+    initMap();
+    
+}

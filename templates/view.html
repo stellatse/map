@@ -16,7 +16,7 @@ $var title: 我的行程 $ret['route_name']
     <div class="J_trip-day"> 
         <div class="datewrap datewrap-first datewrap-on" id="D1"> <div class="datestamp"><span class="datastamp-bg">D1 </span></div>  <a href="/edit/$ret['route_id']" >[编辑本天]</a>  </div>
 $for s in sights:
-    $if s['order'] != 1:
+    $if s['order'] != '1':
         <div class="scene-path"> <span class="traffic-type traffic-type-3 J_traffic-type"></span></div>
     <div class="itemwrap item-scene "> 
     <div class="item-header">  <a href="#" class="item-name nslog"> $s['sight'].name </a></div>

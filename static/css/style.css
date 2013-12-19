@@ -33,3 +33,12 @@ body {
 width: 32px;
 padding-left: 46px;
 }
+
+.line-scene {
+padding-left: 28px;
+background: url("/static/img/line-scene_77d9ce36.png") 5px 3px no-repeat;
+}
+.line-scene-first {
+padding-left: 0;
+background: transparent;
+}

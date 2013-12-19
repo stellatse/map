@@ -60,8 +60,6 @@ function addMarker(){
         var json = markerArr[i];
         var p0 = json.point.split("|")[0];
         var p1 = json.point.split("|")[1];
-        alert(p0);
-        alert(p1);
         var point = new BMap.Point(p0,p1);
         var iconImg = createIcon(json.icon);
         var marker = new BMap.Marker(point,{icon:iconImg});

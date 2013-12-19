@@ -49,21 +49,22 @@ map.addControl(ctrl_nav);
      // ,{title:"上海博物馆",content:"我的备注",point:"121.480567|31.235681",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
      // ,{title:"静安寺",content:"我的备注",point:"121.453474|31.230617",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
      // ];
-var markerArr = [];
-$.ajax({
-    url: "/get_sights",
-    type: "POST",
-}).done(function (data){
-    obj = JSON.parse(data)
-    for(var i=0;i<obj.length;i++){
-        markerArr.push({title:obj[i].name,content:obj[i].id,point:obj[i].latitude + '|' + obj[i].longitude,isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}})
-        
-      }
-})
+
 
 
 //创建marker
 function addMarker(){
+    var markerArr = [];
+    $.ajax({
+        url: "/get_sights",
+        type: "POST",
+    }).done(function (data){
+        obj = JSON.parse(data)
+        for(var i=0;i<obj.length;i++){
+            markerArr.push({title:obj[i].name,content:obj[i].id,point:obj[i].latitude + '|' + obj[i].longitude,isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}})
+            
+          }
+    });
     for(var i=0;i<markerArr.length;i++){
         var json = markerArr[i];
         var p0 = json.point.split("|")[0];

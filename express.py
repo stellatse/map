@@ -85,7 +85,7 @@ class view:
         for i in route_spots:
             sight = web.ctx.orm.query(Sight).filter(Sight.id==i.sight_id).one()
             sights.append({'sight':sight, 'order':i.sight_order})
-        ret = {'route_name':route_name}
+        ret = {'route_name':route_name, 'route_id':route}
         return render.view(sights, ret)
 
 class get_sights:

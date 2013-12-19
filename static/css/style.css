@@ -25,6 +25,10 @@ body {
 .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
 .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
 
+/* View Route Page
+-------------------------------------------------- */
+
+/* Define all the css for view route page (view.html) */
 .line-on .line-date {
     background: url("/static/img/day-on.jpg") 8px center no-repeat #22a4e6;
     color: #FFF;
@@ -42,7 +46,147 @@ background: url("/static/img/line-scene_77d9ce36.png") 5px 3px no-repeat;
 padding-left: 0;
 background: transparent;
 }
-
+.timeline {
+width: 100%;
+margin: 57px 0 0 0;
+}
+.datelist-wrap {
+width: 71px;
+height: 1px;
+display: inline;
+float: left;
+z-index: 1;
+}
+.datelist {
+position: relative;
+top: -14px;
+width: 55px;
+overflow: hidden;
+}
+.datelist li.datelist-on {
+background: #f3785f;
+border-radius: 2px;
+}
+.datelist li {
+display: block;
+margin-bottom: 14px;
+}
+.datelist li.datelist-on a {
+color: #fff;
+background: url("/static/img/trips-icon_d27725e0.png") right -200px no-repeat;
+}
+.datelist a {
+display: block;
+height: 26px;
+padding: 0 14px 0 8px;
+font: normal 18px "华文细黑","微软雅黑","宋体";
+line-height: 26px;
+}
 .itemlist {
-padding-top:20px
+display: inline;
+float: left;
+border-left: 2px solid #eaedf1;
+margin-bottom: 100px;
+position: relative;
+}
+.datewrap-on {
+background: url("/static/img/trips-icon_d27725e0.png") 0 -100px no-repeat;
+}
+.datewrap-first {
+top: -17px;
+margin: 0;
+}
+.datewrap {
+height: 34px;
+padding: 0 0 0 41px;
+position: relative;
+left: -13px;
+margin: 40px 0 17px 0;
+background: url("/static/img/trips-icon_d27725e0.png") 0 -150px no-repeat;
+}
+.itemwrap {
+width: 874px;
+border: 1px solid #ecebeb;
+margin: 0 0 0 26px;
+position: relative;
+margin-bottom: 30px;
+}
+.item-header {
+height: 50px;
+padding-left: 20px;
+font: normal 20px "微软雅黑","宋体";
+line-height: 50px;
+position: relative;
+background: #fbfbfb;
+}
+.item-name {
+display: inline;
+float: left;
+}
+.itemwrap .item-header a {
+color: #333;
+}
+.item-body {
+padding: 30px 45px 30px 20px;
+border-bottom: 1px solid #ecebeb;
+}
+.detail {
+display: inline;
+float: left;
+width: 649px;
+}
+.dname {
+display: inline;
+float: left;
+width: 90px;
+padding-right: 15px;
+margin-bottom: 10px;
+text-align: right;
+background: url("/static/img/view-trip-icon_bb21f8e9.png") right -294px no-repeat;
+}
+.dcon {
+display: inline;
+float: left;
+width: 534px;
+margin: 0 0 10px 10px;
+word-break: break-all;
+}
+.expand {
+display: block;
+margin: 10px auto;
+width: 22px;
+height: 14px;
+background: url("/static/img/view-trip-icon_bb21f8e9.png") center -150px no-repeat;
+cursor: pointer;
+}
+.itemlist .scene-path {
+border-left: 2px solid #eaedf1;
+position: relative;
+margin-left: 40px;
+padding-left: 20px;
+line-height: 42px;
+color: #999;
+margin-top: -30px;
+}
+.itemlist .scene-path .traffic-type {
+position: absolute;
+top: 8px;
+left: -14px;
+display: block;
+height: 26px;
+width: 26px;
+border-radius: 10px;
+background: url("/static/img/traffic-icon_445d20a5.png") no-repeat -60px 0;
+}
+.endwrap {
+width: 30px;
+height: 20px;
+text-align: center;
+padding-top: 18px;
+font: normal 14px "华文细黑","微软雅黑","宋体";
+line-height: 20px;
+position: absolute;
+left: -15px;
+bottom: -43px;
+background: url("/static/img/trips-icon_d27725e0.png") -41px -193px no-repeat;
 }

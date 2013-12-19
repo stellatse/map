@@ -130,6 +130,14 @@ color: #333;
 padding: 30px 45px 30px 20px;
 border-bottom: 1px solid #ecebeb;
 }
+.album {
+display: inline;
+float: left;
+width: 160px;
+height: 120px;
+position: relative;
+overflow: hidden;
+}
 .detail {
 display: inline;
 float: left;

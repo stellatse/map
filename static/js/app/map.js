@@ -13,17 +13,7 @@
 
 //创建和初始化地图函数：
 function initMap(){
-    markerArr = [];
-    $.ajax({
-        url: "/get_sights",
-        type: "POST",
-    }).done(function (data){
-        obj = JSON.parse(data)
-        for(var i=0;i<obj.length;i++){
-            markerArr.push({title:obj[i].name,content:obj[i].id,point:obj[i].latitude + '|' + obj[i].longitude,isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}})
-            
-          }
-    });
+
     createMap();//创建地图
     setMapEvent();//设置地图事件
     addMapControl();//向地图添加控件
@@ -120,5 +110,15 @@ function createIcon(json){
     return icon;
 }
 
-
-initMap();//创建和初始化地图
+markerArr = [];
+$.ajax({
+    url: "/get_sights",
+    type: "POST",
+}).done(function (data){
+    obj = JSON.parse(data)
+    for(var i=0;i<obj.length;i++){
+        markerArr.push({title:obj[i].name,content:obj[i].id,point:obj[i].latitude + '|' + obj[i].longitude,isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}})
+        
+      }
+    initMap();//创建和初始化地图
+});

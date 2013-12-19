@@ -56,6 +56,19 @@ font-size: 16px;
 padding: 0 60px 0 20px;
 display: inline-block;
 }
+.edit-plan-content .plan-list {
+height: 100%;
+overflow-y: auto;
+overflow-x: hidden;
+scrollbar-face-color: #d9dbdd;
+scrollbar-arrow-color: #d9dbdd;
+scrollbar-3dlight-color: #fff;
+scrollbar-highlight-color: #edeeef;
+scrollbar-shadow-color: #fff;
+scrollbar-darkshadow-color: #fff;
+scrollbar-track-color: #edeeef;
+scrollbar-base-color: #cdcdcd;
+}
 .edit-plan-content .path-list {
 margin: 0 20px 0 40px;
 padding-top: 5px;

@@ -27,7 +27,6 @@ function initMap(){
     createMap();//创建地图
     setMapEvent();//设置地图事件
     addMapControl();//向地图添加控件
-    getMarker();
     addMarker();//向地图中添加marker
 }
 

@@ -58,7 +58,70 @@ font-size: 16px;
 padding: 0 60px 0 20px;
 display: inline-block;
 }
+.edit-plan-content .path-list {
+margin: 0 20px 0 40px;
+padding-top: 5px;
+min-height: 96px;
+width: 100%;
+overflow-x: hidden;
+}
 
+.edit-plan-content .add-scene-btn {
+border: 1px dashed #cad9e2;
+background: #fff url("/static/img/plan-content-icon_b2f9a877.png") 0 -200px no-repeat;
+height: 48px;
+color: #999;
+padding: 10px 0 10px 80px;
+margin: 0 40px 20px;
+line-height: 24px;
+cursor: pointer;
+}
+.edit-plan-content .add-scene-btn a {
+color: #176de6;
+}
+.edit-plan-content .plan-savers {
+position: absolute;
+bottom: 8px;
+left: 40px;
+text-align: center;
+line-height: 42px;
+font-size: 16px;
+}
+.edit-plan-content .plan-savers .plan-save-btn {
+color: #333;
+display: inline-block;
+background-color: #f7f8f9;
+border: 1px solid #e1e4e8;
+width: 106px;
+margin-right: 5px;
+text-decoration: none;
+border-radius: 3px;
+background-color: #f7f8f9;
+background-repeat: repeat-x;
+background-image: -moz-linear-gradient(top,#f7f8f9,#f7f8f9);
+background-image: -ms-linear-gradient(top,#f7f8f9,#f7f8f9);
+background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#f7f8f9),color-stop(100%,#f7f8f9));
+background-image: -webkit-linear-gradient(top,#f7f8f9,#f7f8f9);
+background-image: -o-linear-gradient(top,#f7f8f9,#f7f8f9);
+background-image: linear-gradient(top,#f7f8f9,#f7f8f9);
+}
+.edit-plan-content .plan-savers .plan-publish-btn {
+color: #fff;
+display: inline-block;
+background-color: #0cb1f2;
+border: 1px solid #0cb1f2;
+width: 132px;
+text-decoration: none;
+border-radius: 3px;
+background-color: #0caceb;
+background-repeat: repeat-x;
+background-image: -moz-linear-gradient(top,#0cb1f2,#0caceb);
+background-image: -ms-linear-gradient(top,#0cb1f2,#0caceb);
+background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#0cb1f2),color-stop(100%,#0caceb));
+background-image: -webkit-linear-gradient(top,#0cb1f2,#0caceb);
+background-image: -o-linear-gradient(top,#0cb1f2,#0caceb);
+background-image: linear-gradient(top,#0cb1f2,#0caceb);
+}
 
 /* View Route Page
 -------------------------------------------------- */

@@ -10,7 +10,7 @@ $var title: 规划行程
       <h3>选择行程</h3>
       <div id="current_route">
       <table class="table" >
-      <caption>行程名：$ret['route_name']</caption>
+      <caption>$ret['route_name']</caption>
          <tbody>
 $for s in sights:
     <tr>
@@ -18,13 +18,13 @@ $for s in sights:
         <img width="90" height="60" style="margin:0px 0px 0px -15px" src="$s['sight'].pic_link">
         </td>
         <td><a>$s['sight'].name</a><br/>
-            <i style="font-size:11px">建议游玩：$s['sight'].play_time</i>
+            <p style="font-size:11px">建议游玩：$s['sight'].play_time</i>
         </td>
     </tr>
 </tbody>
 </table>
 </div>
-<button type="button" class="btn btn-primary btn-large" id="add_to" >添加到我的行程</button>
+<button type="button" class="btn btn-primary" id="add_to" >添加到我的行程</button>
 <ul class="pager">
 $if ret['current'] == '1':
     <li class="previous disabled">
@@ -47,10 +47,13 @@ $else:
 <div class="edit-plan-content ui-tabs ui-widget ui-widget-content ui-corner-all" id="J_day-tabs">
 <header class="plan-header"> <h3>我的行程</h3></header>
 <div class="plan-list J_plan-list ui-droppable" id="J_plan-list" style="height: 23px;">
-
-
 <div id="my_route"></div>
 
+<ul class="path-list connectedSortable_path ui-tabs-panel ui-widget-content ui-corner-bottom ui-sortable" style="" id="route_day">
+
+</ul>
+<div class="add-scene-btn"> 从左边添加地点或 <br><a class="J_add-scene" id="J_add-scene-plan" data-type="plan" href="###">自行添加</a> </div>
+<div class="plan-savers"> <a href="###" class="plan-save-btn" id="J_plan-save">保存</a> <a href="###" class="plan-publish-btn" id="J_plan-publish">完成查看</a> </div>
 
 </div>
 </div>

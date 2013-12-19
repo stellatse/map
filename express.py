@@ -96,6 +96,7 @@ class get_sights:
             ret.append({'id':i.id,'name':i.name, 'latitude':i.latitude, 'longitude':i.longitude})
         return json.dumps(ret)
 
+        
 class initial_data:
     def GET(self):
         s = Sight(name='新天地', address='测试地址', latitude='121.481241', longitude='31.222388', phone='123456', play_time='1小时', price='免费', pic_link='/test.jpg', tag='测试', open_time='测试', brief_description='测试')

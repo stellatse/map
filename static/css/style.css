@@ -31,6 +31,44 @@ body {
 -------------------------------------------------- */
 
 /* Define all the css for edit route page (edit.html) */
+.edit-map-content {
+position: relative;
+overflow: hidden;
+}
+.edit-map-content .mapper-wrapper {
+height: 100%;
+margin-right: 290px;
+position: relative;
+}
+.edit-map-content .lister-wrapper {
+position: absolute;
+top: 0;
+right: 0;
+height: 100%;
+}
+.edit-map-content .lister-wrapper .lister-container {
+padding: 15px 0 0 0;
+width: 290px;
+height: 100%;
+background-color: #f6f6f6;
+border-left: 1px solid #e2e3e3;
+}
+.edit-map-content .lister-wrapper .scene-list {
+margin: 0 10px 10px 20px;
+padding: 5px 0 0 0;
+background-color: #f6f6f6;
+overflow-y: auto;
+overflow-x: hidden;
+position: relative;
+scrollbar-face-color: #d9dbdd;
+scrollbar-arrow-color: #d9dbdd;
+scrollbar-3dlight-color: #fff;
+scrollbar-highlight-color: #edeeef;
+scrollbar-shadow-color: #fff;
+scrollbar-darkshadow-color: #fff;
+scrollbar-track-color: #edeeef;
+scrollbar-base-color: #cdcdcd;
+}
 .side-wrapper {
 width: 340px;
 height: 100%;

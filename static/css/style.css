@@ -53,6 +53,15 @@ height: 100%;
 background-color: #f6f6f6;
 border-left: 1px solid #e2e3e3;
 }
+.add-to-plan {
+background: #fff url("/static/img/edit-icon_57726864.png") no-repeat 0 -100px;
+height: 29px;
+width: 29px;
+display: block;
+position: absolute;
+top: 14px;
+right: 10px;
+}
 .edit-map-content .lister-wrapper .scene-list {
 margin: 0 10px 10px 20px;
 padding: 5px 0 0 0;

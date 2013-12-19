@@ -17,7 +17,6 @@ function initMap(){
     setMapEvent();//设置地图事件
     addMapControl();//向地图添加控件
     addMarker();//向地图中添加marker
-    addPolyline();//向地图中添加线
 }
 
 //创建地图函数：
@@ -44,12 +43,25 @@ map.addControl(ctrl_nav);
             }
 
 //标注点数组
-var markerArr = [{title:"新天地",content:"我的备注",point:"121.481241|31.222388",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
-     ,{title:"大世界",content:"我的备注",point:"121.48567|31.23389",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
-     ,{title:"豫园",content:"我的备注",point:"121.498821|31.233767",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
-     ,{title:"上海博物馆",content:"我的备注",point:"121.480567|31.235681",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
-     ,{title:"静安寺",content:"我的备注",point:"121.453474|31.230617",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
-     ];
+// var markerArr = [{title:"新天地",content:"我的备注",point:"121.481241|31.222388",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+     // ,{title:"大世界",content:"我的备注",point:"121.48567|31.23389",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+     // ,{title:"豫园",content:"我的备注",point:"121.498821|31.233767",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+     // ,{title:"上海博物馆",content:"我的备注",point:"121.480567|31.235681",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+     // ,{title:"静安寺",content:"我的备注",point:"121.453474|31.230617",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+     // ];
+var markerArr = [];
+$.ajax({
+    url: "/get_sights",
+    type: "POST",
+}).done(function (data){
+    obj = JSON.parse(data)
+    for(var i=0;i<obj.length;i++){
+        markerArr.push({title:obj[i].name,content:obj[i].id,point:obj[i].latitude + '|' + obj[i].longitude,isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}})
+        
+      }
+})
+
+
 //创建marker
 function addMarker(){
     for(var i=0;i<markerArr.length;i++){
@@ -103,22 +115,6 @@ function createIcon(json){
     var icon = new BMap.Icon("http://app.baidu.com/map/images/us_mk_icon.png", new BMap.Size(json.w,json.h),{imageOffset: new BMap.Size(-json.l,-json.t),infoWindowOffset:new BMap.Size(json.lb+5,1),offset:new BMap.Size(json.x,json.h)})
     return icon;
 }
-//标注线数组
-var plPoints = [{style:"solid",weight:4,color:"#f00",opacity:0.6,points:["121.481286|31.22228","121.485885|31.233149"]}
-     ];
-//向地图中添加线函数
-function addPolyline(){
-    for(var i=0;i<plPoints.length;i++){
-        var json = plPoints[i];
-        var points = [];
-        for(var j=0;j<json.points.length;j++){
-            var p1 = json.points[j].split("|")[0];
-            var p2 = json.points[j].split("|")[1];
-            points.push(new BMap.Point(p1,p2));
-        }
-        var line = new BMap.Polyline(points,{strokeStyle:json.style,strokeWeight:json.weight,strokeColor:json.color,strokeOpacity:json.opacity});
-        map.addOverlay(line);
-    }
-}
+
 
 initMap();//创建和初始化地图

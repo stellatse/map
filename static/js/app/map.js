@@ -13,14 +13,7 @@
 
 //创建和初始化地图函数：
 function initMap(){
-    createMap();//创建地图
-    setMapEvent();//设置地图事件
-    addMapControl();//向地图添加控件
-    getMarker();
-    addMarker();//向地图中添加marker
-}
-function getMarker(){
-    var markerArr = [];
+    markerArr = [];
     $.ajax({
         url: "/get_sights",
         type: "POST",
@@ -31,8 +24,13 @@ function getMarker(){
             
           }
     });
-
+    createMap();//创建地图
+    setMapEvent();//设置地图事件
+    addMapControl();//向地图添加控件
+    getMarker();
+    addMarker();//向地图中添加marker
 }
+
 //创建地图函数：
 function createMap(){
     var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图

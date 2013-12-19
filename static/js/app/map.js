@@ -16,9 +16,23 @@ function initMap(){
     createMap();//创建地图
     setMapEvent();//设置地图事件
     addMapControl();//向地图添加控件
+    getMarker();
     addMarker();//向地图中添加marker
 }
+function getMarker(){
+    var markerArr = [];
+    $.ajax({
+        url: "/get_sights",
+        type: "POST",
+    }).done(function (data){
+        obj = JSON.parse(data)
+        for(var i=0;i<obj.length;i++){
+            markerArr.push({title:obj[i].name,content:obj[i].id,point:obj[i].latitude + '|' + obj[i].longitude,isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}})
+            
+          }
+    });
 
+}
 //创建地图函数：
 function createMap(){
     var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
@@ -54,17 +68,7 @@ map.addControl(ctrl_nav);
 
 //创建marker
 function addMarker(){
-    var markerArr = [];
-    $.ajax({
-        url: "/get_sights",
-        type: "POST",
-    }).done(function (data){
-        obj = JSON.parse(data)
-        for(var i=0;i<obj.length;i++){
-            markerArr.push({title:obj[i].name,content:obj[i].id,point:obj[i].latitude + '|' + obj[i].longitude,isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}})
-            
-          }
-    });
+
     for(var i=0;i<markerArr.length;i++){
         var json = markerArr[i];
         var p0 = json.point.split("|")[0];

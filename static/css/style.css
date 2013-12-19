@@ -27,6 +27,40 @@ body {
 .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
 .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
 
+/* Edit Route Page
+-------------------------------------------------- */
+
+/* Define all the css for edit route page (edit.html) */
+.side-wrapper {
+width: 340px;
+height: 100%;
+position: absolute;
+top: 0;
+right: 0;
+background-color: #fff;
+box-shadow: 0 0 6px #aaa;
+overflow: hidden;
+}
+.edit-plan-content {
+height: 100%;
+overflow: hidden;
+}
+.edit-plan-content .plan-header {
+border-bottom: 1px solid #dddbd8;
+line-height: 40px;
+height: 40px;
+padding: 0 10px 0 20px;
+background-color: #fcfcfc;
+position: relative;
+}
+.edit-plan-content .plan-header h3 {
+color: #333;
+font-size: 16px;
+padding: 0 60px 0 20px;
+display: inline-block;
+}
+
+
 /* View Route Page
 -------------------------------------------------- */
 

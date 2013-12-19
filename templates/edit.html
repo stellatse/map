@@ -9,13 +9,17 @@ $var title: 规划行程
     <div class="span2">
       <h3>选择行程</h3>
       <div id="current_route">
-      <table class="table table-bordered" >
+      <table class="table" >
       <caption>行程名：$ret['route_name']</caption>
          <tbody>
 $for s in sights:
     <tr>
-        <td>景点$s['order']</td>
-        <td>$s['sight'].name</td>
+        <td>
+        <img width="90" height="60" style="margin:0px 0px 0px -15px" src="$s['sight'].pic_link">
+        </td>
+        <td><a>$s['sight'].name</a>
+            <i>建议游玩：$s['sight'].play_time</i>
+        </td>
     </tr>
 </tbody>
 </table>
@@ -39,9 +43,17 @@ $else:
 </ul>
 </div>
 <div class="span3">
-<h3>我的行程</h3>
-<div id="my_route">
+<div class="side-wrapper">
+<div class="edit-plan-content ui-tabs ui-widget ui-widget-content ui-corner-all" id="J_day-tabs">
+<header class="plan-header"> <h3>我的行程</h3></header>
+<div class="plan-list J_plan-list ui-droppable" id="J_plan-list" style="height: 23px;">
 
+
+<div id="my_route"></div>
+
+
+</div>
+</div>
 </div>
 </div>
 </div>

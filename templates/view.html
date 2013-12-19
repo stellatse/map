@@ -20,7 +20,7 @@ $for s in sights:
         <div class="scene-path"> <span class="traffic-type traffic-type-3 J_traffic-type"></span></div>
     <div class="itemwrap item-scene "> 
     <div class="item-header">  <a href="#" class="item-name nslog"> $s['sight'].name </a></div>
-    <div class="item-body">
+    <div class="item-body clearfix">
     <a href="#" class="album">  <img width="160" src="$s['sight'].pic_link" alt="$s['sight'].name">  </a>
     <div class="detail J-detail-isnotcut">
     <div class="ditem clearfix"> <div class="dname">建议游玩时间：</div> <div class="dcon">$s['sight'].play_time</div> </div>
@@ -33,7 +33,7 @@ $for s in sights:
     </div>
     <div class="item-footer"> 
     <span class="J-edit-remark">点击添加备注 <i class="remark-edit-ico">编辑</i></span> 
-    <div class="remark-editor"><textarea class="editor-txta" rows="3"></textarea><div class="editor-ctrl"><a href="javascript:void(0);" class="editor-cancel">取消</a><a href="javascript:void(0);" class="editor-confirm">确定</a></div></div>
+    <div class="remark-editor" style="display:none;"><textarea class="editor-txta" rows="3"></textarea><div class="editor-ctrl"><a href="javascript:void(0);" class="editor-cancel">取消</a><a href="javascript:void(0);" class="editor-confirm">确定</a></div></div>
     </div>
     </div>
     

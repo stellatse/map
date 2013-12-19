@@ -141,7 +141,7 @@ overflow: hidden;
 .detail {
 display: inline;
 float: left;
-width: 649px;
+width: 659px;
 }
 .dname {
 display: inline;
@@ -185,6 +185,28 @@ height: 26px;
 width: 26px;
 border-radius: 10px;
 background: url("/static/img/traffic-icon_445d20a5.png") no-repeat -60px 0;
+}
+.item-footer {
+padding: 10px 20px;
+min-height: 20px;
+_height: 20px;
+background: #fbfbfb;
+color: #666;
+}
+.J-edit-remark {
+cursor: pointer;
+}
+.item-footer i {
+display: -moz-inline-box;
+-moz-box-orient: vertical;
+display: inline-block;
+vertical-align: middle;
+width: 16px;
+height: 16px;
+text-indent: -9999px;
+}
+.item-footer i.remark-edit-ico {
+background: url("/static/img/view-trip-icon_bb21f8e9.png") 0 0 no-repeat;
 }
 .endwrap {
 width: 30px;

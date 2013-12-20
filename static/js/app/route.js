@@ -1,6 +1,6 @@
 
 $('#add_to').click(function(){
-    var my = $('#my_route');
+    var my = $('#route_day');
     var current = $('#current_route').html();
     var markerArr = [];
     my.append(current);

@@ -12,6 +12,7 @@ urls = (
     '/edit/(\d+)', 'edit',
     '/view/(\d+)', 'view',
     '/get_sights', 'get_sights',
+    '/get_route', 'get_route',
     '/initial', 'initial_data'
 
 )
@@ -60,7 +61,7 @@ class edit:
         route_spots =  web.ctx.orm.query(RouteSpot).filter(RouteSpot.route_id==route).all()
         for i in route_spots:
             sight = web.ctx.orm.query(Sight).filter(Sight.id==i.sight_id).one()
-            sights.append({'sight':sight, 'order':i.sight_order})
+            sights.append({'sight':sight, 'order':i.sight_order, 'sight_id':i.id})
         ret = {'route_name':route_name, 'count':count, 'current':route, 'next':next, 'prev': prev}
         source = web.ctx.orm.query(Sight).filter(Sight.city==r.city).all()
         return render.edit(sights, ret, source)
@@ -96,7 +97,25 @@ class get_sights:
         for i in sights:
             ret.append({'id':i.id,'name':i.name, 'latitude':i.latitude, 'longitude':i.longitude})
         return json.dumps(ret)
-
+class get_route:
+    def POST(self):
+        r = web.ctx.orm.query(Route).filter(Route.id==route).first()
+        route_name = r.route_name
+        sights = []
+        count = web.ctx.orm.query(Route).count()
+        next = 0
+        prev = 0
+        if int(route) != 1:
+            prev = int(route) - 1
+        if int(route) != count:
+            next = int(route) + 1
+        route_spots =  web.ctx.orm.query(RouteSpot).filter(RouteSpot.route_id==route).all()
+        for i in route_spots:
+            sight = web.ctx.orm.query(Sight).filter(Sight.id==i.sight_id).one()
+            sights.append({'sight':sight, 'order':i.sight_order, 'sight_id':i.id})
+        ret = {'route_name':route_name, 'count':count, 'current':route, 'next':next, 'prev': prev}
+        
+        return json.dumps({'ret':ret, 'sights':sights})
         
 class initial_data:
     def GET(self):

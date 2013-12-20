@@ -99,7 +99,7 @@ class get_sights:
         return json.dumps(ret)
 class get_route:
     def POST(self):
-        route = web.data().id
+        route = web.input().id
         r = web.ctx.orm.query(Route).filter(Route.id==route).first()
         route_name = r.route_name
         sights = []
@@ -116,7 +116,7 @@ class get_route:
             sights.append({'sight':sight, 'order':i.sight_order, 'sight_id':i.id})
         ret = {'route_name':route_name, 'count':count, 'current':route, 'next':next, 'prev': prev}
         
-        return json.dumps({'ret':ret, 'sights':sights})
+        return {'ret':ret, 'sights':sights}
         
 class initial_data:
     def GET(self):

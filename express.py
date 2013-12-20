@@ -99,7 +99,7 @@ class get_sights:
         return json.dumps(ret)
 class get_route:
     def POST(self):
-        route = web.data.id
+        route = web.data().id
         r = web.ctx.orm.query(Route).filter(Route.id==route).first()
         route_name = r.route_name
         sights = []

@@ -93,7 +93,7 @@ class publish_route:
         route_name = web.input().name
         city = web.input().city
         #route = json.dumps(web.input().route)
-        route_id = web.input().id
+        route_id = int(web.input().id)
         # for i in route:
             # print i
         if route_id == 0:

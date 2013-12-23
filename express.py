@@ -41,7 +41,7 @@ class create:
     def POST(self):
         i = web.input()
         ss = web.ctx.orm.query(Sight).filter(Sight.city==i.destination.encode('utf8')).all()
-        ret = {'route_name':'New'}
+        ret = {'route_name':'New', 'current':0}
         sights = []
         if ss == []:
             return render.failed('所选城市不存在景点')
@@ -58,7 +58,7 @@ class edit:
         for i in route_spots:
             sight = web.ctx.orm.query(Sight).filter(Sight.id==i.sight_id).one()
             sights.append({'sight':sight, 'order':i.sight_order, 'sight_id':i.id})
-        ret = {'route_name':route_name}
+        ret = {'route_name':route_name, 'current':r.id}
         source = web.ctx.orm.query(Sight).filter(Sight.city==r.city).all()
         return render.edit(sights, ret, source)
     

@@ -27,39 +27,19 @@ $for i in source:
     </div>
     </div>
     <div class="span2">
+<script type="text/javascript">
+find_route(1)
+</script>
       <h3>选择行程</h3>
       <div id="current_route">
       <table class="table" >
-      <h3 id="route_name">$ret['route_name']</h3>
+      <h3 id="route_name"></h3>
          <tbody class="route_content">
-$for s in sights:
-    <tr>
-        <td>
-        <img width="90" height="60" style="margin:0px 0px 0px -15px" src="$s['sight'].pic_link">
-        </td>
-        <td><a>$s['sight'].name</a><br/>
-            <p style="font-size:11px">建议游玩：$s['sight'].play_time</i>
-        </td>
-    </tr>
 </tbody>
 </table>
 </div>
 <button type="button" class="btn btn-primary" id="add_to" >添加到我的行程</button>
 <ul class="pager" id="route_pager">
-$if ret['current'] == '1':
-    <li class="previous disabled">
-    <a href="#" >&larr; 上一个</a>
-$else:
-    <li class="previous">
-    <a href="javascript:void(0)" onclick="find_route($ret['prev'])">&larr; 上一个</a>
-</li>
-$if int(ret['current']) == ret['count']:
-    <li class="next disabled">
-    <a href="#">下一个 &rarr;</a>
-$else:
-    <li class="next">
-    <a href="javascript:void(0)" onclick="find_route($ret['next'])">下一个 &rarr;</a>
-</li>
 </ul>
 </div>
 <div class="span3">

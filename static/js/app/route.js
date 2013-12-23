@@ -73,7 +73,7 @@ function publish_route(route_id){
         pub.push({'order': i, 'value': $(this).val()});
         i++;
     });
-    pub = JSON.parse(pub);
+    
     $.post("/publish_route", {id: route_id, name: route_name, route:pub, city:city})
     
 }

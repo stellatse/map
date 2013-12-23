@@ -21,7 +21,7 @@ $('#add_to').click(function(){
 
 function reload_route(sights, route){
     $('.route_content').html(sights);
-    $('.route_name').html(route['name']);
+    $('#route_name').html(route['name']);
     var pager = '';
     if (route['current'] == '1'){
         pager += '<li class="previous disabled"><a href="#" >&larr; 上一个</a>'

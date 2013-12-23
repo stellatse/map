@@ -43,7 +43,7 @@ class create:
     def POST(self):
         i = web.input()
         ss = web.ctx.orm.query(Sight).filter(Sight.city==i.destination.encode('utf8')).all()
-        ret = {'route_name':'我的新行程', 'current':0, 'city':i}
+        ret = {'route_name':'我的新行程', 'current':0, 'city':i.destination.encode('utf8')}
         sights = []
         if ss == []:
             return render.failed('所选城市不存在景点')
@@ -90,8 +90,8 @@ class view:
 
 class publish_route:
     def POST(self):
-        route_name = web.input().name
-        city = web.input().city
+        route_name = web.input().name.encode('utf8')
+        city = web.input().city.encode('utf8')
         #route = json.dumps(web.input().route)
         route_id = int(web.input().id)
         # for i in route:

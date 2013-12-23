@@ -57,7 +57,13 @@ function find_route(route_id){
 function add_to_route(sight_id){
     $.post("/get_sight", {id:sight_id}).done(function (data){
         ret = JSON.parse(data)
-        sight = '<tr><td><img width="90" height="60" style="margin:0px 0px 0px -15px" src="'+ret['pic_link']+'"></td><td><a>'+ret['name']+'</a><br/><p style="font-size:11px">建议游玩：'+ret['play_time']+'</i></td></tr><input type="text" name="sight" value="'+ret['id']+'" style="display:none;">';
+        sight = '<tr><td><img width="90" height="60" style="margin:0px 0px 0px -15px" src="'+ret['pic_link']+'"></td><td><a>'+ret['name']+'</a><br/><p style="font-size:11px">建议游玩：'+ret['play_time']+'</i></td></tr><input type="text" name="sight" value="'+ret['id']+'" style="display:none;"/>';
         reload_user_route(sight)
     })
+};
+
+
+function publish_route(route_id){
+    var route_name = $('input[name=route_name]').value();
+    alert(route_name);
 }

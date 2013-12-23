@@ -12,6 +12,7 @@ urls = (
     '/edit/(\d+)', 'edit',
     '/view/(\d+)', 'view',
     '/get_sights', 'get_sights',
+    '/get_sight', 'get_single_sight',
     '/get_route', 'get_route',
     '/initial', 'initial_data'
 
@@ -93,6 +94,15 @@ class get_sights:
         for i in sights:
             ret.append({'id':i.id,'name':i.name, 'latitude':i.latitude, 'longitude':i.longitude})
         return json.dumps(ret)
+
+class get_single_sight:
+    def POST(self):
+        sight_id = web.input().id
+        s = web.ctx.orm.query(Sight).filter(Sight.id==sight_id).first()
+        ret = {'name':s.name, 'id':s.id, 'play_time':s.play_time}
+        return json.dumps(ret)
+        
+        
 class get_route:
     def POST(self):
         route = web.input().id

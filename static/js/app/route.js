@@ -3,7 +3,7 @@ $('#add_to').click(function(){
     var my = $('#route_day');
     var current = $('#current_route').html();
     var markerArr = [];
-    my.append(current);
+    reload_user_route(current);
     $.ajax({
         url: "/get_sights",
         type: "POST",
@@ -19,7 +19,7 @@ $('#add_to').click(function(){
     
 })
 
-function reload_route(sights, route){
+function reload_defined_route(sights, route){
     $('.route_content').html(sights);
     $('#route_name').html(route['name']);
     var pager = '';
@@ -37,6 +37,10 @@ function reload_route(sights, route){
     pager += '</li>'
     $('#route_pager').html(pager)
 };
+function reload_user_route(sights){
+    var my = $('#route_day');
+    my.append(sights);
+}
 function find_route(route_id){
     var sight = '';
     
@@ -46,10 +50,15 @@ function find_route(route_id){
         for(var i=0;i<obj.length;i++){
             sight += '<tr><td><img width="90" height="60" style="margin:0px 0px 0px -15px" src="'+obj[i]['sight'][1]+'"></td><td><a>'+obj[i]['sight'][0]+'</a><br/><p style="font-size:11px">建议游玩：'+obj[i]['sight'][2]+'</i></td></tr>'
           }
-        reload_route(sight,ret['ret']);
+        reload_defined_route(sight,ret['ret']);
     })
 }
 
 function add_to_route(sight_id){
-    
+    $.post("/get_sight", {id:sight_id}).done(function (data){
+        ret = JSON.parse(data)
+        sight = '<tr><td><img width="90" height="60" style="margin:0px 0px 0px -15px" src="'+ret['pic_link']+'"></td><td><a>'+ret['name']+'</a><br/><p style="font-size:11px">建议游玩：'+ret['play_time']+'</i></td></tr>';
+        sight += '<input type="text" name="sight" value="'+ret['id']+'" style="display:none;">'
+        reload_user_route(sight)
+    })
 }

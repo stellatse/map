@@ -101,11 +101,11 @@ class publish_route:
             r = Route(route_name=route_name, city=city)
             web.ctx.orm.add(r)
             web.ctx.orm.commit()
-            return web.seeother("/edit/%d" % r.id)
+            return web.seeother("/view/%d" % r.id)
         else:
             r = web.ctx.orm.query(Route).filter(Route.id==route_id).first()
             r.update({route_name:route_name, city:city})
-            return web.seeother("/edit/%d" % r.id)
+            return web.seeother("/view/%d" % r.id)
             
 class get_sights:
     def POST(self):

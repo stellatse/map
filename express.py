@@ -102,7 +102,7 @@ class publish_route:
             return web.seeother("/edit/%d" % r.id)
         else:
             r = web.ctx.orm.query(Route).filter(Route.id==route_id).first()
-            r.update({route_name:route_name, city=city})
+            r.update({route_name:route_name, city:city})
             return web.seeother("/edit/%d" % r.id)
             
 class get_sights:

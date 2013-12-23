@@ -98,8 +98,10 @@ class publish_route:
             # print i
         if route_id == 0:
             r = Route(route_name=route_name, city=city)
-            web.ctx.orm.add(r)
-            return web.seeother("/edit/%d" % r.id)
+            new = web.ctx.orm.add(r)
+            print new
+            return True
+            # return web.seeother("/edit/%d" % r.id)
         else:
             r = web.ctx.orm.query(Route).filter(Route.id==route_id).first()
             r.update({route_name:route_name, city:city})

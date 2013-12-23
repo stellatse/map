@@ -42,7 +42,7 @@ class create:
     def POST(self):
         i = web.input()
         ss = web.ctx.orm.query(Sight).filter(Sight.city==i.destination.encode('utf8')).all()
-        ret = {'route_name':'New', 'current':0}
+        ret = {'route_name':'我的新行程', 'current':0}
         sights = []
         if ss == []:
             return render.failed('所选城市不存在景点')

@@ -65,12 +65,14 @@ function add_to_route(sight_id){
 
 function publish_route(route_id){
     var route_name = $('input[name=route_name]').val();
+    var city = $('.brand').val();
+    alert(city)
     var pub = [];
     var i = 0;
     $('input[name=sight]').each(function(){
         pub.push({'order': i, 'value': $(this).val()});
         i++;
     });
+    $.post("/publish_route", {id: route_id, name: route_name, route:pub, city:city})
     
-    alert(pub);
 }

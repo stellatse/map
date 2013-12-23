@@ -14,6 +14,7 @@ urls = (
     '/get_sights', 'get_sights',
     '/get_sight', 'get_single_sight',
     '/get_route', 'get_route',
+    '/publish_route', 'publish_route',
     '/initial', 'initial_data'
 
 )
@@ -42,7 +43,7 @@ class create:
     def POST(self):
         i = web.input()
         ss = web.ctx.orm.query(Sight).filter(Sight.city==i.destination.encode('utf8')).all()
-        ret = {'route_name':'我的新行程', 'current':0}
+        ret = {'route_name':'我的新行程', 'current':0, 'city':i}
         sights = []
         if ss == []:
             return render.failed('所选城市不存在景点')
@@ -59,7 +60,7 @@ class edit:
         for i in route_spots:
             sight = web.ctx.orm.query(Sight).filter(Sight.id==i.sight_id).one()
             sights.append({'sight':sight, 'order':i.sight_order, 'sight_id':i.id})
-        ret = {'route_name':route_name, 'current':r.id}
+        ret = {'route_name':route_name, 'current':r.id, 'city':r.city}
         source = web.ctx.orm.query(Sight).filter(Sight.city==r.city).all()
         return render.edit(sights, ret, source)
     
@@ -87,6 +88,23 @@ class view:
         ret = {'route_name':route_name, 'route_id':route}
         return render.view(sights, ret)
 
+class publish_route:
+    def POST(self):
+        route_name = web.input().name
+        city = web.input().city
+        route = json.dumps(web.input().route)
+        route_id = web.input().id
+        for i in route:
+            print i
+        if route_id == 0:
+            r = Route(route_name=route_name, city=city)
+            web.ctx.orm.add(r)
+            return web.seeother("/edit/%d" % r.id)
+        else:
+            r = web.ctx.orm.query(Route).filter(Route.id==route_id).first()
+            r.update({route_name:route_name, city=city})
+            return web.seeother("/edit/%d" % r.id)
+            
 class get_sights:
     def POST(self):
         ret = []

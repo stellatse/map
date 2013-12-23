@@ -41,9 +41,11 @@ class create:
     def POST(self):
         i = web.input()
         ss = web.ctx.orm.query(Sight).filter(Sight.city==i.destination.encode('utf8')).all()
+        ret = {'route_name':'New'}
+        sights = []
         if ss == []:
             return render.failed('所选城市不存在景点')
-        return web.seeother('/edit/1')
+        return render.edit(sights, ret, ss)
         
 
 class edit:
@@ -51,18 +53,12 @@ class edit:
         r = web.ctx.orm.query(Route).filter(Route.id==route).first()
         route_name = r.route_name
         sights = []
-        count = web.ctx.orm.query(Route).count()
-        next = 0
-        prev = 0
-        if int(route) != 1:
-            prev = int(route) - 1
-        if int(route) != count:
-            next = int(route) + 1
+
         route_spots =  web.ctx.orm.query(RouteSpot).filter(RouteSpot.route_id==route).all()
         for i in route_spots:
             sight = web.ctx.orm.query(Sight).filter(Sight.id==i.sight_id).one()
             sights.append({'sight':sight, 'order':i.sight_order, 'sight_id':i.id})
-        ret = {'route_name':route_name, 'count':count, 'current':route, 'next':next, 'prev': prev}
+        ret = {'route_name':route_name}
         source = web.ctx.orm.query(Sight).filter(Sight.city==r.city).all()
         return render.edit(sights, ret, source)
     

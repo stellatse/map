@@ -28,11 +28,11 @@ $for i in source:
     </div>
     <div class="span2">
 
-      <h3>选择行程</h3>
-      <div id="current_route">
-      <table class="table" >
-      <h3 id="route_name"></h3>
-         <tbody class="route_content">
+<h3>选择行程</h3>
+<div id="current_route">
+<table class="table" >
+<h3 id="route_name"></h3>
+<tbody class="route_content">
 </tbody>
 </table>
 </div>
@@ -48,6 +48,9 @@ $for i in source:
 <div id="my_route"></div>
 
 <ul class="path-list connectedSortable_path ui-tabs-panel ui-widget-content ui-corner-bottom ui-sortable" style="" id="route_day">
+$if sights != []:
+    $for s in sights:
+        <p>$s['sight'].name</p>
 
 </ul>
 <div class="add-scene-btn"> 从左边添加地点或<br>选择已有行程<br> </div>

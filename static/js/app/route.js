@@ -65,8 +65,12 @@ function add_to_route(sight_id){
 
 function publish_route(route_id){
     var route_name = $('input[name=route_name]').val();
-    alert(route_name);
-    var sight = $('input[name=sight]').val();
+    var sight = [];
+    var i = 0;
+    $('input[name=sight]').each(function(){
+        sight.push({i: $(this).val()});
+        i++;
+    });
     
     alert(sight);
 }

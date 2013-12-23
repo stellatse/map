@@ -92,10 +92,10 @@ class publish_route:
     def POST(self):
         route_name = web.input().name
         city = web.input().city
-        route = json.dumps(web.input().route)
+        #route = json.dumps(web.input().route)
         route_id = web.input().id
-        for i in route:
-            print i
+        # for i in route:
+            # print i
         if route_id == 0:
             r = Route(route_name=route_name, city=city)
             web.ctx.orm.add(r)

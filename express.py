@@ -99,7 +99,7 @@ class get_single_sight:
     def POST(self):
         sight_id = web.input().id
         s = web.ctx.orm.query(Sight).filter(Sight.id==sight_id).first()
-        ret = {'name':s.name, 'id':s.id, 'play_time':s.play_time}
+        ret = {'name':s.name, 'id':s.id, 'play_time':s.play_time, 'pic_link':s.pic_link}
         return json.dumps(ret)
         
         

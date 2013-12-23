@@ -18,16 +18,7 @@ $('#add_to').click(function(){
     })
     
 })
-$if ret['current'] == '1':
-    <li class="previous disabled"><a href="#" >&larr; 上一个</a>
-$else:
-    <li class="previous"><a href="javascript:void(0)" onclick="find_route($ret['prev'])">&larr; 上一个</a>
-</li>
-$if int(ret['current']) == ret['count']:
-    <li class="next disabled"><a href="#">下一个 &rarr;</a>
-$else:
-    <li class="next"><a href="javascript:void(0)" onclick="find_route($ret['next'])">下一个 &rarr;</a>
-</li>
+
 function reload_route(sights, route){
     $('.route_content').html(sights);
     $('.route_name').html(route['name']);

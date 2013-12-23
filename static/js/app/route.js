@@ -18,8 +18,9 @@ $('#add_to').click(function(){
     })
     
 })
-function reload_route(route){
+function reload_route(route, route_name){
     $('.route_content').html(route);
+    $('.route_name').html(route_name)
 };
 function find_route(route_id){
     var sight = '';
@@ -29,10 +30,9 @@ function find_route(route_id){
         ret = JSON.parse(data)
         obj = ret['sights']
         for(var i=0;i<obj.length;i++){
-            sight += '<tr><td><img width="90" height="60" style="margin:0px 0px 0px -15px" src="'+obj[i].pic_link+'"></td><td><a>'+obj[i].name+'</a><br/><p style="font-size:11px">建议游玩：'+obj[i].play_time+'</i></td></tr>'
-            
+            sight += '<tr><td><img width="90" height="60" style="margin:0px 0px 0px -15px" src="'+obj[i]['sight'][1]+'"></td><td><a>'+obj[i]['sight'][0]+'</a><br/><p style="font-size:11px">建议游玩：'+obj[i]['sight'][2]+'</i></td></tr>'
           }
-        reload_route(sight);
+        reload_route(sight,ret['ret']['route_name']);
     })
 }
 

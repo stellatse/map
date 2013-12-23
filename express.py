@@ -113,10 +113,10 @@ class get_route:
         route_spots =  web.ctx.orm.query(RouteSpot).filter(RouteSpot.route_id==route).all()
         for i in route_spots:
             sight = web.ctx.orm.query(Sight).filter(Sight.id==i.sight_id).one()
-            sights.append({'sight':sight, 'order':i.sight_order, 'sight_id':i.id})
+            sights.append({'sight':[sight.name, sight.pic_link, sight.play_time], 'order':i.sight_order, 'sight_id':i.sight_id})
         ret = {'route_name':route_name, 'count':count, 'current':route, 'next':next, 'prev': prev}
         
-        return {'ret':ret, 'sights':sights}
+        return json.dumps({'ret':ret, 'sights':sights})
         
 class initial_data:
     def GET(self):

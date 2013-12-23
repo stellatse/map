@@ -15,7 +15,7 @@ $for i in source:
     <div class="scene-item"> 
          <div class="scene-info handleSortable_path"><strong><span class="J_scene-name scene-name" title="$i.name">$i.name</span></strong>                    
          <p class="travel-time">$i.play_time</p>                    
-         <a href="###" class="add-to-plan J_add-to-plan" title="加入行程"></a>                
+         <a href="javascript:void(0)" class="add-to-plan J_add-to-plan" title="加入行程" onclick="add_to_route($i.id)"></a>                
          </div>
     </div>
     </li>

@@ -68,7 +68,7 @@ function publish_route(route_id){
     var pub = [];
     var i = 0;
     $('input[name=sight]').each(function(){
-        pub.push({i: $(this).val()});
+        pub.push({'order': i, 'value': $(this).val()});
         i++;
     });
     

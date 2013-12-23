@@ -41,7 +41,6 @@ function find_route(route_id){
     var sight = '';
     
     $.post("/get_route",{id:route_id}).done(function (data){
-        alert(data);
         ret = JSON.parse(data)
         obj = ret['sights']
         for(var i=0;i<obj.length;i++){

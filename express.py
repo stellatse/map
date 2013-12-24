@@ -101,7 +101,7 @@ class publish_route:
             r = Route(route_name=route_name, city=city)
             web.ctx.orm.add(r)
             web.ctx.orm.commit()
-            raise web.seeother("/view/%d" % r.id)
+            return json.dumps({"url":"/view/%d" % r.id})
         else:
             r = web.ctx.orm.query(Route).filter(Route.id==route_id).first()
             r.update({route_name:route_name, city:city})

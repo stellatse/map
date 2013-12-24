@@ -93,7 +93,8 @@ class publish_route:
         route_name = web.input().name.encode('utf8')
         city = web.input().city.encode('utf8')
         route = web.input().route
-        print route
+        for i in route:
+            print i
         route_id = int(web.input().id)
         return False
         # for i in route:

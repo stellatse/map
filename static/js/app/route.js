@@ -65,7 +65,7 @@ function add_to_route(sight_id){
 
 function publish_route(route_id){
     var route_name = $('input[name=route_name]').val();
-    var city = $('#brand').html();
+    var city = $('.city').html();
     alert(city)
     var pub = '[';
     var i = 0;

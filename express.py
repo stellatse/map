@@ -92,7 +92,7 @@ class publish_route:
     def POST(self):
         route_name = web.input().name.encode('utf8')
         city = web.input().city.encode('utf8')
-        route = web.input()
+        route = web.input().route
         print route
         route_id = int(web.input().id)
         return False

@@ -106,9 +106,6 @@ class publish_route:
                 web.ctx.orm.delete(spot)
         for i in route:
             web.ctx.orm.add(RouteSpot(sight_id=i['value'], sight_order=int(i['order']), route_id=route_id))
-                
-                
-
 
         return json.dumps({"url":"/view/%d" % route_id})
             

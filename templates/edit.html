@@ -50,7 +50,7 @@ $for i in source:
 <ul class="path-list connectedSortable_path ui-tabs-panel ui-widget-content ui-corner-bottom ui-sortable" style="" id="route_day">
 $if sights != []:
     $for s in sights:
-        <p>$s['sight'].name</p>
+        <tr><td><img width="90" height="60" style="margin:0px 0px 0px -15px" src="$s['sight'].pic_link"></td><td><a>$s['sight'].name</a><br/><p style="font-size:11px">建议游玩：$s['sight'].play_time</i><input type="text" name="sight" value="$s['sight'].id" style="display:none;"/></td></tr>
 
 </ul>
 <div class="add-scene-btn"> 从左边添加地点或<br>选择已有行程<br> </div>

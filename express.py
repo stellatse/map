@@ -93,22 +93,24 @@ class publish_route:
         route_name = web.input().name.encode('utf8')
         city = web.input().city.encode('utf8')
         route = json.loads(web.input().route)
-        print route
-        for i in route:
-            print i
         route_id = int(web.input().id)
-        return False
-        # for i in route:
-            # print i
-        # if route_id == 0:
-            # r = Route(route_name=route_name, city=city)
-            # web.ctx.orm.add(r)
-            # web.ctx.orm.commit()
-            # return json.dumps({"url":"/view/%d" % r.id})
-        # else:
-            # web.ctx.orm.query(Route).filter(Route.id==route_id).update({"route_name":route_name, "city":city})
-            # r = web.ctx.orm.query(Route).filter(Route.id==route_id).first()
-            # return json.dumps({"url":"/view/%d" % r.id})
+        if route_id == 0:
+            r = Route(route_name=route_name, city=city)
+            web.ctx.orm.add(r)
+            web.ctx.orm.commit()
+            route_id = r.id
+        else:
+            web.ctx.orm.query(Route).filter(Route.id==route_id).update({"route_name":route_name, "city":city})
+            org = web.ctx.orm.query(RouteSpot).filter(RouteSpot.route_id==route_id).all()
+            for spot in org:
+                web.ctx.orm.delete(spot)
+        for i in route:
+            web.ctx.orm.add(RouteSpot(sight_id=i['value'], sight_order=int(i['order']), route_id=route_id))
+                
+                
+
+
+        return json.dumps({"url":"/view/%d" % route_id})
             
 class get_sights:
     def POST(self):

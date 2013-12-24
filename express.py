@@ -93,7 +93,7 @@ class publish_route:
         route_name = web.input().name.encode('utf8')
         city = web.input().city.encode('utf8')
         route = web.input().route
-        print route
+        print json.dumps(route)
         route_id = int(web.input().id)
         # for i in route:
             # print i
@@ -103,7 +103,8 @@ class publish_route:
             web.ctx.orm.commit()
             return json.dumps({"url":"/view/%d" % r.id})
         else:
-            r = web.ctx.orm.query(Route).filter(Route.id==route_id).update({"route_name":route_name, "city":city})
+            web.ctx.orm.query(Route).filter(Route.id==route_id).update({"route_name":route_name, "city":city})
+            r = web.ctx.orm.query(Route).filter(Route.id==route_id).first()
             return json.dumps({"url":"/view/%d" % r.id})
             
 class get_sights:

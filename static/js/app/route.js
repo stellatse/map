@@ -66,13 +66,13 @@ function add_to_route(sight_id){
 function publish_route(route_id){
     var route_name = $('input[name=route_name]').val();
     var city = $('.city').html();
-    var pub = '[';
+    var pub = [];
     var i = 0;
     $('input[name=sight]').each(function(){
-        pub+='{order: '+i+', value: '+$(this).val()+'},'
+        // pub+='{order: '+i+', value: '+$(this).val()+'}&'
+        pub.push({'order': i, 'value':$(this).val()})
         i++;
     });
-    pub+=']'
     $.post("/publish_route", {id: route_id, name: route_name, route:pub, city:city}).done(function (data){
          ret = JSON.parse(data)
          window.location.href = ret['url'];

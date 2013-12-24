@@ -93,19 +93,20 @@ class publish_route:
         route_name = web.input().name.encode('utf8')
         city = web.input().city.encode('utf8')
         route = web.input().route
-        print json.dumps(route)
+        print route
         route_id = int(web.input().id)
+        return false
         # for i in route:
             # print i
-        if route_id == 0:
-            r = Route(route_name=route_name, city=city)
-            web.ctx.orm.add(r)
-            web.ctx.orm.commit()
-            return json.dumps({"url":"/view/%d" % r.id})
-        else:
-            web.ctx.orm.query(Route).filter(Route.id==route_id).update({"route_name":route_name, "city":city})
-            r = web.ctx.orm.query(Route).filter(Route.id==route_id).first()
-            return json.dumps({"url":"/view/%d" % r.id})
+        # if route_id == 0:
+            # r = Route(route_name=route_name, city=city)
+            # web.ctx.orm.add(r)
+            # web.ctx.orm.commit()
+            # return json.dumps({"url":"/view/%d" % r.id})
+        # else:
+            # web.ctx.orm.query(Route).filter(Route.id==route_id).update({"route_name":route_name, "city":city})
+            # r = web.ctx.orm.query(Route).filter(Route.id==route_id).first()
+            # return json.dumps({"url":"/view/%d" % r.id})
             
 class get_sights:
     def POST(self):

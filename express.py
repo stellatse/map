@@ -92,12 +92,11 @@ class publish_route:
     def POST(self):
         route_name = web.input().name.encode('utf8')
         city = web.input().city.encode('utf8')
-        route = web.input()
-        for i in route:
-            print i
+        route = web.input().route
+        
         print route
         route_id = int(web.input().id)
-        return false
+        return False
         # for i in route:
             # print i
         # if route_id == 0:

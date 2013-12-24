@@ -103,7 +103,7 @@ class publish_route:
             web.ctx.orm.commit()
             return json.dumps({"url":"/view/%d" % r.id})
         else:
-            r = web.ctx.orm.query(Route).filter(Route.id==route_id).update({route_name:route_name, city:city})
+            r = web.ctx.orm.query(Route).filter(Route.id==route_id).update({"route_name":route_name, "city":city})
             return json.dumps({"url":"/view/%d" % r.id})
             
 class get_sights:

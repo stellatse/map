@@ -61,9 +61,8 @@ function add_to_route(sight_id){
         reload_user_route(sight)
     })
 };
-function remove_sight(){
-    var test = this;
-    this.parent.parent.removeNode(true);
+function remove_sight(obj){
+    $(obj).parent().parent().remove();
 }
 
 function publish_route(route_id){

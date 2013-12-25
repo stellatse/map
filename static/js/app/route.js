@@ -85,7 +85,7 @@ function publish_route(route_id){
     var route_name = $('input[name=route_name]').val();
     var city = $('.city').html();
     var pub = [];
-    var i = 0;
+    var i = 1;
     $('input[name=sight]').each(function(){
         pub.push({'order': i, 'value':$(this).val()})
         i++;

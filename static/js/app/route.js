@@ -61,8 +61,8 @@ function add_to_route(sight_id){
         reload_user_route(sight)
     })
 };
-function remove_sight(s){
-    s.parent.parent.remove();
+function remove_sight(){
+    this.parent.parent.remove();
 }
 
 function publish_route(route_id){

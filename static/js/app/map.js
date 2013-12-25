@@ -1,16 +1,3 @@
-
-// pots = [];
-// $.ajax({
-    // url: "/get_sights",
-    // type: "POST",
-// }).done(function (data){
-    // obj = JSON.parse(data)
-    // for(var i=0;i<obj.length;i++){
-        // pots.push({title:obj[i].name,content:obj[i].id,point:obj[i].latitude + '|' + obj[i].longitude,isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}})
-        
-      // }
-// })
-
 //创建和初始化地图函数：
 function initMap(){
 

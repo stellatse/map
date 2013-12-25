@@ -82,6 +82,15 @@ position: absolute;
 top: 14px;
 right: 10px;
 }
+.edit-plan-content .scene-delete {
+display: none;
+top: -5px;
+right: -5px;
+position: absolute;
+width: 16px;
+height: 16px;
+background: url("/static/img/plan-content-icon_b2f9a877.png") 0 -150px no-repeat;
+}
 .edit-map-content .lister-wrapper .scene-list {
 margin: 0 10px 10px 20px;
 padding: 5px 0 0 0;

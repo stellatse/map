@@ -96,3 +96,16 @@ function publish_route(route_id){
     })
     
 }
+
+function load_route_map(route_id){
+    var markerArr = [];
+    $.post("/get_route_map", {id:route_id}).done(function (data){
+        obj = JSON.parse(data)
+        for(var i=0;i<obj.length;i++){
+            markerArr.push({title:obj[i].name,content:obj[i].id,point:obj[i].latitude + '|' + obj[i].longitude,isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}})
+            
+          }
+    initMap();//创建和初始化地图
+});
+
+}

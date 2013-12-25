@@ -19,6 +19,18 @@ $('#add_to').click(function(){
     
 })
 
+function add_to(route_id){
+    var sight = '';
+    $.post("/get_route",{id:route_id}).done(function (data){
+        ret = JSON.parse(data)
+        obj = ret['sights']
+        for(var i=0;i<obj.length;i++){
+            sight += '<tr><td><img width="90" height="60" style="margin:0px 0px 0px -15px" src="'+obj[i]['sight'][1]+'"></td><td><a>'+obj[i]['sight'][0]+'</a><br/><p style="font-size:11px">建议游玩：'+obj[i]['sight'][2]+'</i><a style="font-size:10px" title="删除" onclick="remove_sight(this);">删除</a></p><input type="text" name="sight" value="'+obj[i]['sight_id']+'" style="display:none;"/></td></tr>';
+          }
+        reload_user_route(sight, true);
+    })
+}
+
 function reload_defined_route(sights, route){
     $('.route_content').html(sights);
     $('#route_name').html(route['name']);
@@ -35,11 +47,16 @@ function reload_defined_route(sights, route){
         pager += '<li class="next"><a href="javascript:void(0)" onclick="find_route(' + route['next'] + ')">下一个 &rarr;</a>';
     }
     pager += '</li>'
+    $('#route_id').html('<button type="button" class="btn btn-primary" onclick="add_to('+route['current']+')" >添加到我的行程</button>')
     $('#route_pager').html(pager)
 };
-function reload_user_route(sights){
+function reload_user_route(sights, refresh=false){
     var my = $('#route_day');
+    if (refresh==true){
+        my.empty()
+    }
     my.append(sights);
+    
 }
 function find_route(route_id){
     var sight = '';
@@ -49,6 +66,8 @@ function find_route(route_id){
         obj = ret['sights']
         for(var i=0;i<obj.length;i++){
             sight += '<tr><td><img width="90" height="60" style="margin:0px 0px 0px -15px" src="'+obj[i]['sight'][1]+'"></td><td><a>'+obj[i]['sight'][0]+'</a><br/><p style="font-size:11px">建议游玩：'+obj[i]['sight'][2]+'</i></td></tr>'
+            
+
           }
         reload_defined_route(sight,ret['ret']);
     })
@@ -62,7 +81,7 @@ function add_to_route(sight_id){
     })
 };
 function remove_sight(obj){
-    $(obj).parent().parent().remove();
+    $(obj).parent().parent().parent().remove();
 }
 
 function publish_route(route_id){

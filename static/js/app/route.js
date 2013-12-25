@@ -61,7 +61,9 @@ function add_to_route(sight_id){
         reload_user_route(sight)
     })
 };
-
+function remove_sight(s){
+    s.parent.parent.remove();
+}
 
 function publish_route(route_id){
     var route_name = $('input[name=route_name]').val();
@@ -69,7 +71,6 @@ function publish_route(route_id){
     var pub = [];
     var i = 0;
     $('input[name=sight]').each(function(){
-        // pub+='{order: '+i+', value: '+$(this).val()+'}&'
         pub.push({'order': i, 'value':$(this).val()})
         i++;
     });

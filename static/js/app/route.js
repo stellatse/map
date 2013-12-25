@@ -1,24 +1,3 @@
-
-$('#add_to').click(function(){
-    var my = $('#route_day');
-    var current = $('#current_route').html();
-    var markerArr = [];
-    reload_user_route(current);
-    $.ajax({
-        url: "/get_sights",
-        type: "POST",
-        
-    }).done(function (data){
-        obj = JSON.parse(data)
-        for(var i=0;i<obj.length;i++){
-            markerArr.push({title:obj[i].name,content:obj[i].id,point:obj[i].latitude + '|' + obj[i].longitude,isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}})
-            
-          }
-        reload_map();
-    })
-    
-})
-
 function add_to(route_id){
     var sight = '';
     $.post("/get_route",{id:route_id}).done(function (data){

@@ -67,6 +67,8 @@ function add_to_route(sight_id){
     $.post("/get_sight", {id:sight_id}).done(function (data){
         ret = JSON.parse(data)
         sight = '<tr><td><img width="90" height="60" style="margin:0px 0px 0px -15px" src="'+ret['pic_link']+'"></td><td><a>'+ret['name']+'</a><br/><p style="font-size:11px">建议游玩：'+ret['play_time']+'</i><a style="font-size:10px" title="删除" onclick="remove_sight(this);">删除</a></p><input type="text" name="sight" value="'+ret['id']+'" style="display:none;"/></td></tr>';
+        spot_points.push(ret['latitude'] + '|' + ret['longitude'])
+        reload_map_line()
         reload_user_route(sight)
     })
 };
@@ -90,6 +92,12 @@ function publish_route(route_id){
     
 }
 
+function reload_map_line(){
+    plPoints = []
+    plPoints.push({style:"solid",weight:4,color:"#f00",opacity:0.6,points:spot_points})      
+    addPolyline()
+}
+
 function load_route_map(route_id){
     $.post("/get_route_map", {id:route_id}).done(function (data){
         obj = JSON.parse(data)
@@ -97,9 +105,7 @@ function load_route_map(route_id){
         for(var i=0;i<obj.length;i++){
             spot_points.push(obj[i].latitude + '|' + obj[i].longitude)
           }
-        plPoints = []
-        plPoints.push({style:"solid",weight:4,color:"#f00",opacity:0.6,points:spot_points})      
-        addPolyline()
+        reload_map_line()
     });
 }
 

@@ -28,6 +28,7 @@ function reload_defined_route(sights, route){
     pager += '</li>'
     $('#route_id').html('<button type="button" class="btn btn-primary" onclick="add_to('+route['current']+')" >添加到我的行程</button>')
     $('#route_pager').html(pager)
+    load_route_map(route['current'])
 };
 function reload_user_route(sights, refresh){
     var my = $('#route_day');
@@ -85,8 +86,7 @@ function load_route_map(route_id){
             //markerArr.push({title:obj[i].name,content:obj[i].id,point:obj[i].latitude + '|' + obj[i].longitude,isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}})
           }
         plPoints = []
-        alert(spot_points);
-        plPoints.push({style:"solid",weight:4,color:"#f00",opacity:0.6,points:["121.482437|31.244222","121.39735|31.203707","121.418622|31.260522"]})      
+        //plPoints.push({style:"solid",weight:4,color:"#f00",opacity:0.6,points:["121.482437|31.244222","121.39735|31.203707","121.418622|31.260522"]})      
         plPoints.push({style:"solid",weight:4,color:"#f00",opacity:0.6,points:spot_points})      
         addPolyline()
     

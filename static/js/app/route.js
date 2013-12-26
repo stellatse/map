@@ -86,7 +86,7 @@ function remove_sight(obj){
         spot_points = []
         for(var i=0;i<ret.length;i++){
             spot_points.push(ret[i]['latitude'] + '|' + ret[i]['longitude'])
-        
+        }
         reload_map_line()
     })
     

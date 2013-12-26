@@ -113,10 +113,7 @@ function addPolyline(){
             map.addOverlay(line);
 		}
 	}
-function clearPolyline(){
-    var lines
-      
-}
+
 var markerArr = [];
 $.ajax({
     url: "/get_sights",

@@ -68,13 +68,11 @@ function add_to_route(sight_id){
         ret = JSON.parse(data)
         sight = '<tr><td><img width="90" height="60" style="margin:0px 0px 0px -15px" src="'+ret['pic_link']+'"></td><td><a>'+ret['name']+'</a><br/><p style="font-size:11px">建议游玩：'+ret['play_time']+'</i><a style="font-size:10px" title="删除" onclick="remove_sight(this);">删除</a></p><input type="text" name="sight" value="'+ret['id']+'" style="display:none;"/></td></tr>';
         spot_points.push(ret['latitude'] + '|' + ret['longitude'])
-        reload_map_line()
         reload_user_route(sight)
+        reload_map()
     })
 };
-function remove_sight(obj){
-    sight = $(obj).parent().parent().parent();
-    sight.remove();
+function reload_map(){
     var i = 1;
     var pub = [];
     $('input[name=sight]').each(function(){
@@ -89,7 +87,11 @@ function remove_sight(obj){
         }
         reload_map_line()
     })
-    
+}
+function remove_sight(obj){
+    var sight = $(obj).parent().parent().parent();
+    sight.remove();
+    reload_map()
 }
 
 function publish_route(route_id){

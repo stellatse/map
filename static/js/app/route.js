@@ -1,16 +1,16 @@
-function RouteSpot(firstname,lastname,age,eyecolor)
-{
-this.firstname=firstname;
-this.lastname=lastname;
-this.age=age;
-this.eyecolor=eyecolor;
+// function RouteSpot(firstname,lastname,age,eyecolor)
+// {
+// this.firstname=firstname;
+// this.lastname=lastname;
+// this.age=age;
+// this.eyecolor=eyecolor;
 
-this.changeName=changeName;
-function remove(name)
-{
-this.lastname=name;
-}
-}
+// this.changeName=changeName;
+// function remove(name)
+// {
+// this.lastname=name;
+// }
+// }
 function add_to(route_id){
     var sight = '';
     $.post("/get_route",{id:route_id}).done(function (data){

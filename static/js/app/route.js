@@ -21,6 +21,9 @@ function add_to(route_id){
           }
         reload_user_route(sight, true);
     })
+    
+    load_route_map(route_id)
+    
 }
 
 function reload_defined_route(sights, route){

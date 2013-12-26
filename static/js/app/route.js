@@ -90,7 +90,6 @@ function publish_route(route_id){
 }
 
 function load_route_map(route_id){
-    map.removeOverlay(plPoints)
     $.post("/get_route_map", {id:route_id}).done(function (data){
         obj = JSON.parse(data)
         var spot_points = []

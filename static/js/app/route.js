@@ -103,5 +103,3 @@ function load_route_map(route_id){
     });
 }
 
-function
-

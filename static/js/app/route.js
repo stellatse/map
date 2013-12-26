@@ -101,7 +101,7 @@ function reload_map_line(){
 function load_route_map(route_id){
     $.post("/get_route_map", {id:route_id}).done(function (data){
         obj = JSON.parse(data)
-        var spot_points = []
+        spot_points = []
         for(var i=0;i<obj.length;i++){
             spot_points.push(obj[i].latitude + '|' + obj[i].longitude)
           }

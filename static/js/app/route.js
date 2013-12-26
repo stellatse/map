@@ -41,7 +41,7 @@ function reload_defined_route(sights, route){
     pager += '</li>'
     $('#route_id').html('<button type="button" class="btn btn-primary" onclick="add_to('+route['current']+')" >添加到我的行程</button>')
     $('#route_pager').html(pager)
-    load_route_map(route['current'])
+    
 };
 function reload_user_route(sights, refresh){
     var my = $('#route_day');
@@ -49,6 +49,7 @@ function reload_user_route(sights, refresh){
         my.empty()
     }
     my.append(sights);
+    
 }
 function find_route(route_id){
     var sight = '';

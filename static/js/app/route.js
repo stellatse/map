@@ -1,3 +1,16 @@
+function RouteSpot(firstname,lastname,age,eyecolor)
+{
+this.firstname=firstname;
+this.lastname=lastname;
+this.age=age;
+this.eyecolor=eyecolor;
+
+this.changeName=changeName;
+function remove(name)
+{
+this.lastname=name;
+}
+}
 function add_to(route_id){
     var sight = '';
     $.post("/get_route",{id:route_id}).done(function (data){
@@ -36,7 +49,6 @@ function reload_user_route(sights, refresh){
         my.empty()
     }
     my.append(sights);
-    
 }
 function find_route(route_id){
     var sight = '';
@@ -78,17 +90,18 @@ function publish_route(route_id){
 }
 
 function load_route_map(route_id){
+    map.removeOverlay(plPoints)
     $.post("/get_route_map", {id:route_id}).done(function (data){
         obj = JSON.parse(data)
         var spot_points = []
         for(var i=0;i<obj.length;i++){
             spot_points.push(obj[i].latitude + '|' + obj[i].longitude)
-            //markerArr.push({title:obj[i].name,content:obj[i].id,point:obj[i].latitude + '|' + obj[i].longitude,isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}})
           }
         plPoints = []
-        //plPoints.push({style:"solid",weight:4,color:"#f00",opacity:0.6,points:["121.482437|31.244222","121.39735|31.203707","121.418622|31.260522"]})      
         plPoints.push({style:"solid",weight:4,color:"#f00",opacity:0.6,points:spot_points})      
         addPolyline()
-    
     });
 }
+
+function
+

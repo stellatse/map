@@ -90,9 +90,10 @@ function load_route_map(route_id){
          ],    
          {strokeColor:"blue", strokeWeight:4, strokeOpacity:0.6}    
         );  
-        var plPoints = [{style:"solid",weight:4,color:"#f00",opacity:0.6,points:["121.482437|31.244222","121.39735|31.203707","121.418622|31.260522"]}
+        plPoints = []
+        plPoints.push({style:"solid",weight:4,color:"#f00",opacity:0.6,points:["121.482437|31.244222","121.39735|31.203707","121.418622|31.260522"])
 		 ];        
-        map.addOverlay(polyline);
+        //map.addOverlay(polyline);
     
     });
 }

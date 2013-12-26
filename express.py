@@ -156,6 +156,17 @@ class get_route_map:
                 sight = web.ctx.orm.query(Sight).filter(Sight.id==i.sight_id).one()
                 ret.append({'id':sight.id,'name':sight.name, 'latitude':sight.latitude, 'longitude':sight.longitude, 'order':i.sight_order}) 
         return json.dumps(ret)    
+
+class get_sight_map:
+    def POST(self):
+        ret = []
+        route = json.loads(web.input().route)
+        for i in route:
+            sight = web.ctx.orm.query(Sight).filter(Sight.id==i['value']).first()
+            ret.append({'latitude':sight.latitude, 'longitude':sight.longitude})
+
+        return json.dumps(ret)
+        
 class initial_data:
     def GET(self):
         s = Sight(name='新天地', address='测试地址', latitude='121.481241', longitude='31.222388', phone='123456', play_time='1小时', price='免费', pic_link='/test.jpg', tag='测试', open_time='测试', brief_description='测试')

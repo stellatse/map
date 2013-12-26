@@ -74,9 +74,22 @@ function add_to_route(sight_id){
 };
 function remove_sight(obj){
     sight = $(obj).parent().parent().parent();
-    s_index = sight.index(sight);
     sight.remove();
-    reload_map_line()
+    var i = 1;
+    var pub = [];
+    $('input[name=sight]').each(function(){
+        pub.push({'order': i, 'value':$(this).val()})
+        i++;
+    });
+    $.post("/get_sight_map", {'route':JSON.stringify(pub)}).done(function (data){
+        ret = JSON.parse(data)
+        spot_points = []
+        for(var i=0;i<ret.lenght;i++){
+            spot_points.push(ret[i]['latitude'] + '|' + ret[i]['longitude'])
+        }
+        reload_map_line()
+    })
+    
 }
 
 function publish_route(route_id){

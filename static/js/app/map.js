@@ -119,7 +119,7 @@ $.ajax({
         
       }
     map.removeOverlay(plPoints)
-    initMap();}//创建和初始化地图
+    initMap();//创建和初始化地图
 });
 function reload_map(){
     initMap();

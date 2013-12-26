@@ -88,8 +88,10 @@ function load_route_map(route_id){
            new BMap.Point(116.399, 39.910),    
            new BMap.Point(116.405, 39.920)    
          ],    
-         {strokeColor:"blue", strokeWeight:6, strokeOpacity:0.5}    
-        );    
+         {strokeColor:"blue", strokeWeight:4, strokeOpacity:0.6}    
+        );  
+        var plPoints = [{style:"solid",weight:4,color:"#f00",opacity:0.6,points:["121.482437|31.244222","121.39735|31.203707","121.418622|31.260522"]}
+		 ];        
         map.addOverlay(polyline);
     
     });

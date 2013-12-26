@@ -150,11 +150,11 @@ class get_route_map:
     def POST(self):
         ret = []
         route = web.input().id
-        route_spots =  web.ctx.orm.query(RouteSpot).filter(RouteSpot.route_id==route).all()
-        for i in route_spots:
-            sight = web.ctx.orm.query(Sight).filter(Sight.id==i.sight_id).one()
-            ret.append({'id':sight.id,'name':sight.name, 'latitude':sight.latitude, 'longitude':sight.longitude, 'order':i.sight_order})
-            
+        if route != 0 or route != '0':
+            route_spots =  web.ctx.orm.query(RouteSpot).filter(RouteSpot.route_id==route).all()
+            for i in route_spots:
+                sight = web.ctx.orm.query(Sight).filter(Sight.id==i.sight_id).one()
+                ret.append({'id':sight.id,'name':sight.name, 'latitude':sight.latitude, 'longitude':sight.longitude, 'order':i.sight_order}) 
         return json.dumps(ret)    
 class initial_data:
     def GET(self):

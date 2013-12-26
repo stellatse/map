@@ -73,8 +73,9 @@ function add_to_route(sight_id){
     })
 };
 function remove_sight(obj){
-    alert($(obj).parent().parent().index(this));
-    $(obj).parent().parent().parent().remove();
+    sight = $(obj).parent().parent().parent();
+    sight.index(this);
+    sight.remove();
 }
 
 function publish_route(route_id){

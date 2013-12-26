@@ -84,9 +84,9 @@ function remove_sight(obj){
     $.post("/get_sight_map", {'route':JSON.stringify(pub)}).done(function (data){
         ret = JSON.parse(data)
         spot_points = []
-        for(var i=0;i<ret.lenght;i++){
+        for(var i=0;i<ret.length;i++){
             spot_points.push(ret[i]['latitude'] + '|' + ret[i]['longitude'])
-        }
+        
         reload_map_line()
     })
     

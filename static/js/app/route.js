@@ -93,6 +93,7 @@ function load_route_map(route_id){
         plPoints = []
         plPoints.push({style:"solid",weight:4,color:"#f00",opacity:0.6,points:["121.482437|31.244222","121.39735|31.203707","121.418622|31.260522"])
 		 ];        
+        addPolyline()
         //map.addOverlay(polyline);
     
     });

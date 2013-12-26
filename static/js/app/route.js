@@ -73,6 +73,7 @@ function add_to_route(sight_id){
     })
 };
 function remove_sight(obj){
+    alert($(obj).parent().parent().index(this));
     $(obj).parent().parent().parent().remove();
 }
 

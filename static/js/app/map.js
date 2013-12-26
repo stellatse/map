@@ -95,8 +95,12 @@ function createIcon(json){
     return icon;
 }
 var plPoints = []
+lines = []
 function addPolyline(){
-		for(var i=0;i<plPoints.length;i++){
+        for (var i=0;i<lines.length;i++){
+        map.removeOverlay(lines[i]);
+		}
+        for(var i=0;i<plPoints.length;i++){
 			var json = plPoints[i];
 			var points = [];
 			for(var j=0;j<json.points.length;j++){
@@ -105,9 +109,14 @@ function addPolyline(){
 				points.push(new BMap.Point(p1,p2));
 			}
 			var line = new BMap.Polyline(points,{strokeStyle:json.style,strokeWeight:json.weight,strokeColor:json.color,strokeOpacity:json.opacity});
-			map.addOverlay(line);
+			lines.push(line);
+            map.addOverlay(line);
 		}
 	}
+function clearPolyline(){
+    var lines
+      
+}
 var markerArr = [];
 $.ajax({
     url: "/get_sights",

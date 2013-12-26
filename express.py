@@ -16,7 +16,8 @@ urls = (
     '/get_route', 'get_route',
     '/publish_route', 'publish_route',
     '/initial', 'initial_data',
-    '/get_route_map', 'get_route_map'
+    '/get_route_map', 'get_route_map',
+    '/get_sight_map', 'get_sight_map'
 
 )
 def load_sqla(handler):

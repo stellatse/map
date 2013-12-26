@@ -84,7 +84,13 @@ function load_route_map(route_id){
             markerArr.push({title:obj[i].name,content:obj[i].id,point:obj[i].latitude + '|' + obj[i].longitude,isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}})
             
           }
-        addMarker();//创建和初始化地图
+        var polyline = new BMap.Polyline([    
+           new BMap.Point(116.399, 39.910),    
+           new BMap.Point(116.405, 39.920)    
+         ],    
+         {strokeColor:"blue", strokeWeight:6, strokeOpacity:0.5}    
+        );    
+        map.addOverlay(polyline);
     
     });
 }

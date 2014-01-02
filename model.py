@@ -59,7 +59,7 @@ class RouteSpot(Base):
     sight_id = Column(Integer, ForeignKey("sight.id"))
     sight_order = Column(Integer)
     route_id = Column(Integer, ForeignKey("route.id"))
-    
+    note = Column(Text)
     def __init__(self, sight_id, sight_order, route_id):
         self.sight_id = sight_id
         self.sight_order = sight_order

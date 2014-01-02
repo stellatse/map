@@ -8,7 +8,7 @@ from sqlalchemy import create_engine
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Boolean, Text, Float
 
 # Configure database here
-engine = create_engine('mysql+mysqldb://root:tingfeng@localhost/map', echo=True)
+engine = create_engine('mysql+mysqldb://user:pwd@localhost/map', echo=True)
 
 from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()

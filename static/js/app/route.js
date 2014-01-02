@@ -1,16 +1,5 @@
-// function RouteSpot(firstname,lastname,age,eyecolor)
-// {
-// this.firstname=firstname;
-// this.lastname=lastname;
-// this.age=age;
-// this.eyecolor=eyecolor;
 
-// this.changeName=changeName;
-// function remove(name)
-// {
-// this.lastname=name;
-// }
-// }
+//This function use to add the pre-defined route to user's route
 function add_to(route_id){
     var sight = '';
     $.post("/get_route",{id:route_id}).done(function (data){
@@ -26,6 +15,7 @@ function add_to(route_id){
     
 }
 
+//This function use to ajax load the pre-defined route
 function reload_defined_route(sights, route){
     $('.route_content').html(sights);
     $('#route_name').html(route['name']);
@@ -46,6 +36,8 @@ function reload_defined_route(sights, route){
     $('#route_pager').html(pager)
     
 };
+
+//This function use to ajax load html after add a sight into user's route
 function reload_user_route(sights, refresh){
     var my = $('#route_day');
     if (refresh==true){
@@ -54,6 +46,8 @@ function reload_user_route(sights, refresh){
     my.append(sights);
     
 }
+
+//This function used to switch the pre-defined route
 function find_route(route_id){
     var sight = '';
     $.post("/get_route",{id:route_id}).done(function (data){
@@ -65,22 +59,8 @@ function find_route(route_id){
         reload_defined_route(sight,ret['ret']);
     })
 }
-function reload_map(){
-    var i = 1;
-    var pub = [];
-    $('input[name=sight]').each(function(){
-        pub.push({'order': i, 'value':$(this).val()})
-        i++;
-    });
-    $.post("/get_sight_map", {'route':JSON.stringify(pub)}).done(function (data){
-        ret = JSON.parse(data)
-        spot_points = []
-        for(var i=0;i<ret.length;i++){
-            spot_points.push(ret[i]['latitude'] + '|' + ret[i]['longitude'])
-        }
-        reload_map_line()
-    })
-}
+
+//Add the selected sight into user's route
 function add_to_route(sight_id){
     $.post("/get_sight", {id:sight_id}).done(function (data){
         ret = JSON.parse(data)
@@ -91,6 +71,7 @@ function add_to_route(sight_id){
     })
 };
 
+//remove the selected sight in user's route
 function remove_sight(obj){
     var sight = $(obj).parent().parent().parent();
     sight.remove();
@@ -111,6 +92,7 @@ function remove_sight(obj){
     
 }
 
+//save and publish the user's route, redirect to view route page
 function publish_route(route_id){
     var route_name = $('input[name=route_name]').val();
     var city = $('.city').html();
@@ -127,12 +109,14 @@ function publish_route(route_id){
     
 }
 
+//draw the route line on map
 function reload_map_line(){
     plPoints = []
     plPoints.push({style:"solid",weight:4,color:"#f00",opacity:0.6,points:spot_points})      
     addPolyline()
 }
 
+//load the route line on map
 function load_route_map(route_id){
     $.post("/get_route_map", {id:route_id}).done(function (data){
         obj = JSON.parse(data)

@@ -17,7 +17,8 @@ urls = (
     '/publish_route', 'publish_route',
     '/initial', 'initial_data',
     '/get_route_map', 'get_route_map',
-    '/get_sight_map', 'get_sight_map'
+    '/get_sight_map', 'get_sight_map',
+    '/add_note', 'add_note'
 
 )
 def load_sqla(handler):
@@ -74,10 +75,17 @@ class view:
         route_spots =  web.ctx.orm.query(RouteSpot).filter(RouteSpot.route_id==route).all()
         for i in route_spots:
             sight = web.ctx.orm.query(Sight).filter(Sight.id==i.sight_id).one()
-            sights.append({'sight':sight, 'order':i.sight_order})
+            sights.append({'sight':sight, 'order':i.sight_order, 'id':i.id})
         ret = {'route_name':route_name, 'route_id':route}
         return render.view(sights, ret)
 
+class add_note:
+    def POST(self):
+        id = web.input().id
+        note = web.input().note
+        web.ctx.orm.query(RouteSpot).filter(RouteSpot.id==id).update({"note":note})
+        return json.dumps({"status": "success"})
+        
 class publish_route:
     def POST(self):
         route_name = web.input().name.encode('utf8')

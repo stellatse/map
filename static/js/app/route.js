@@ -128,3 +128,9 @@ function load_route_map(route_id){
     });
 }
 
+function add_note(id){
+    var note = $('')
+    $.post("/add_note", {id:id, note:note}).done(function (data){
+        
+    });
+}

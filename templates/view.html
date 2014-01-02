@@ -1,6 +1,9 @@
 $def with(sights, ret)
 $var title: 我的行程 $ret['route_name']
 <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+<script src="/static/js/bootstrap-editable.min.js"></script>
+<script src="/static/js/app/note.js"></script>
+
 <div class="container">
 <div class="row-fluid">
   <div class="span12">
@@ -32,8 +35,7 @@ $for s in sights:
     </div>
     </div>
     <div class="item-footer"> 
-    <span class="J-edit-remark">点击添加备注 <i class="remark-edit-ico">编辑</i></span> 
-    <div class="remark-editor" style="display:none;"><textarea class="editor-txta" rows="3"></textarea><div class="editor-ctrl"><a href="javascript:void(0);" class="editor-cancel">取消</a><a href="javascript:void(0);" class="editor-confirm">确定</a></div></div>
+        <a href="#" id="comments">awesome<br>user!</a>
     </div>
     </div>
     

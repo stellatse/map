@@ -66,18 +66,6 @@ class edit:
         source = web.ctx.orm.query(Sight).filter(Sight.city==r.city).all()
         return render.edit(sights, ret, source)
     
-    def POST(self):
-        # init_route = 1
-        # routes = web.ctx.orm.query(Route).filter(Route.route_id==init_route).all()
-        # sights = []
-        # for i in routes:
-            # sight = web.ctx.orm.query(Sight).filter(Sight.id==i.sight_id).one()
-            # sights.append(sight)
-            
-        # print sights
-         
-        return render.edit()
-
 class view:
     def GET(self, route):
         r = web.ctx.orm.query(Route).filter(Route.id==route).first()

@@ -10,3 +10,6 @@ easy_install SQLAlchemy
 mysql -h hostname -u username -p password databasename < map.sql
 
 4. Modify the model.py to change the databse host/username/password in line 11
+
+5. Start the app with port 8080 -- This only for debug
+python express.py 8080
